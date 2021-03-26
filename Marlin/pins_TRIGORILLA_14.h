@@ -84,8 +84,11 @@
 #define CONTROLLER_FAN_PIN  7
 
 // Heaters
-#define HEATER_0_PIN       10
-#define HEATER_1_PIN       45
+// swap HEATER 0 <-> HEATER 1
+// original HEATER 0 = 10
+// original HEATER 1 = 45
+#define HEATER_0_PIN       45
+#define HEATER_1_PIN       10
 #define HEATER_BED_PIN      8
 
 // Temperatursensoren
