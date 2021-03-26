@@ -1,3 +1,4 @@
+
 # Anycubic i3 Mega / Mega-S Marlin 1.1.9 by davidramiro
 
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6B6SAL5XRH842&source=url) [![Downloads](https://img.shields.io/github/downloads/davidramiro/Marlin-AI3M/total.svg?style=flat)](https://github.com/davidramiro/Marlin-AI3M/releases) [![Open Issues](https://img.shields.io/github/issues-raw/davidramiro/Marlin-AI3M.svg?style=flat)](https://github.com/davidramiro/Marlin-AI3M/issues?q=is%3Aopen+is%3Aissue) [![License](https://img.shields.io/github/license/davidramiro/Marlin-AI3M.svg?style=flat)](https://github.com/davidramiro/Marlin-AI3M/blob/master/LICENSE) [![Latest Release](https://img.shields.io/github/release/davidramiro/Marlin-AI3m.svg?style=flat)](https://github.com/davidramiro/Marlin-AI3M/releases/latest/) [![Last commit](https://img.shields.io/github/last-commit/davidramiro/Marlin-AI3m.svg?style=flat)](https://github.com/davidramiro/Marlin-Ai3M/commits/)  [![Travis CI](https://api.travis-ci.org/davidramiro/Marlin-Ai3M.svg?branch=master)](https://travis-ci.org/davidramiro/Marlin-Ai3M)  
@@ -38,6 +39,13 @@ While the i3 Mega is a great printer for its price and produces fantastic result
 - Special characters on any file or folders name on the SD card will cause the file menu to freeze. Simply replace or remove every special character (Chinese, Arabic, Russian, accents, German & Scandinavian umlauts, ...) from the name. Symbols like dashes or underscores are no problem.
 **Important note: On the SD card that comes with the printer there is a folder with Chinese characters in it by default. Please rename or remove it.**
 
+
+![Compatibility Info][compatibility]
+
+#### Updated compatibility info:  Since late 2020, Anycubic started shipping their printers with a new display. It has a blue background and yellow text. With this display, the special SD menu will not work. Features like Manual Mesh Leveling and PID Tuning need to be configured via USB (e.g. OctoPrint or Cura as host). The printing features itself remain functional.
+
+[compatibility]: https://kore.cc/i3mega/img/compatibility.png "Compatibility Info"
+
 ## How to flash this?
 
 I provided three different precompiled hex files: One for no modifications on the stepper motor drivers - good for people who didn't touch anything yet, one for boards with TMC2208 installed and where the connectors have been flipped and one with TMC2208 and the connectors in original orientation.
@@ -66,16 +74,16 @@ I provided three different precompiled hex files: One for no modifications on th
 
 - Flash the hex with Cura, OctoPrint or similar
 - Use a tool with a terminal (OctoPrint, Pronterface, Repetier Host, ...) to send commands to your printer.
-- **Important** Connect to the printer and send the following commands:
-- `M502` - load hard coded default values
-- `M500` - save them to EEPROM
+- ⚠️ **Important** Connect to the printer and send the following commands:
+  - `M502` - load hard coded default values
+  - `M500` - save them to EEPROM
 
 **If you are using this on a Mega-S, those four additional commands are necessary:**
 - `M92 E384` - set correct steps for the new extruder
 - `M203 E30` - limit extruder feedrate
 - `M204 R1500.00` - lower retract acceleration
 - `M500` - save the values
-- I highly recommend calibrating the extruder.
+- It is highly recommend that you calibrate the extruder.
 
 #### Calibration and other instructions have been moved to the [Wiki](https://github.com/davidramiro/Marlin-AI3M/wiki/Calibration).
 
